@@ -1,0 +1,67 @@
+/* 当月以外の日（月カレンダーに一緒に表示される前後の月） */
+.fc-day-other {
+  .fc-daygrid-day-top, .fc-scrollgrid-sync-inner .fc-col-header-cell-cushion, .fc-list-day-cushion {
+    color: grey;
+  }
+}
+
+/* 土曜日 */
+.fc-day-sat {
+  .fc-daygrid-day-top, .fc-scrollgrid-sync-inner .fc-col-header-cell-cushion, .fc-list-day-cushion {
+    color: blue;
+  }
+}
+
+/* 日曜日 */
+.fc-day-sun{
+  .fc-daygrid-day-top, .fc-scrollgrid-sync-inner .fc-col-header-cell-cushion, .fc-list-day-cushion {
+    color: red;
+  }
+}
+
+/* カレンダーの横幅を指定 */
+.calendar_container .fc {
+  width: 18vw; /* 任意の幅に設定 */
+  margin: auto;
+  height: auto;
+}
+
+/* 日付の文字 */
+.fc .fc-daygrid-day-number {
+  font-size: 0.7rem;
+}
+
+/* 上部の年月 */
+.fc .fc-toolbar-title {
+  font-size : 1.2rem ;
+}
+
+/* 文字のマージン */
+.fc .fc-daygrid-body-natural, .fc .fc-toolbar.fc-header-toolbar {
+  margin: 0;
+}
+
+/* 上部の今日，<，>の文字サイズ */
+.fc .fc-today-button, .fc-button-group .fc-button{
+  font-size: 0.7rem;
+}
+
+/* 曜日の文字サイズ */
+.fc .fc-col-header-cell-cushion {
+  font-size: 0.8rem;
+}
+
+/* 日付の下の部分 */
+.fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events {
+  min-height: 1vh;
+
+}
+
+/* イベントのフォントサイズ */
+.fc-daygrid-day-events {
+  font-size: 0.1rem;
+}
+
+.fc-event-title {
+  font-size: 0.1rem;
+}
