@@ -59,9 +59,13 @@
 
 /* イベントのフォントサイズ */
 .fc-daygrid-day-events {
-  font-size: 0.1rem;
+  font-size: 0.7rem;
 }
 
-.fc-event-title {
-  font-size: 0.1rem;
+.fc .fc-daygrid-body-natural .fc-daygrid-day-events {
+  margin-bottom: 0.5em;
 }
+
+/* .fc-event-title {
+  font-size: 0.1rem;
+} */

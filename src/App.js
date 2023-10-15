@@ -41,10 +41,10 @@ const App = () => {
   // 指定日の開始時間を取得
   const GetTimeList = async (selectedDate) => {
     // console.log(selectedDate);
-    const URL = `http://ezaki-lab.littlestar.jp/nict/api/get_start_data.php?date=${selectedDate}`;
+    const URL = `https://ezaki-lab.littlestar.jp/nict/api/get_start_data.php?date=${selectedDate}`;
     const res = await AccessApi(URL);
     tempTimeDates = res;
-    console.log(res);
+    // console.log(res);
     await setTimeDates(res);
     // if(res.length > 0) {
     //   setSelectedTime(res[0].datetime);
@@ -68,8 +68,8 @@ const App = () => {
       else{
         endDate = temp[checkedTimeIndex].replace(' ', '_');
       }
-      const URL = `http://ezaki-lab.littlestar.jp/nict/api/get_gps.php?start_date=${startDate}&end_date=${endDate}`;
-      console.log(URL);
+      const URL = `https://ezaki-lab.littlestar.jp/nict/api/get_gps.php?start_date=${startDate}&end_date=${endDate}`;
+      // console.log(URL);
 
       if(URL !== ''){
         const res = await AccessApi(URL);
@@ -90,7 +90,7 @@ const App = () => {
       const d = new Date();
       const today = `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`
       await GetTimeList(today);
-      console.log(tempTimeDates);
+      // console.log(tempTimeDates);
       await setTimeDates(tempTimeDates);
     })()
     // eslint-disable-next-line react-hooks/exhaustive-deps

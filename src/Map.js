@@ -2,7 +2,6 @@ import { LoadScript, GoogleMap, Polyline, MarkerF } from "@react-google-maps/api
 import React from "react";
 
 const MapWithPolyline = ({Positions, centerPositions}) => {
-  
   return (
     <LoadScript googleMapsApiKey={"AIzaSyCjpcBI57XAEzvIqzNBEj4eIpVzRaRe93U"}>
       <GoogleMap
@@ -11,7 +10,7 @@ const MapWithPolyline = ({Positions, centerPositions}) => {
         zoom={22}
         center={centerPositions}
         mapOptions={{
-          disabledDefaultUI: true, 
+          disabledDefaultUI: true,
           zoomControl: true,
           streetViewControl: false,
           mapTypeControl: false,
