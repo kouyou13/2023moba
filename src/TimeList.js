@@ -1,6 +1,6 @@
 import React from "react"
 
-export const TimeList = ({TimeDates, GetPositions, selectedTime, setSelectedTime}) => {
+const TimeList = ({TimeDates, GetPositions, selectedTime, setSelectedTime}) => {
   // 時間選択
   const SelectRadio = (e) => {
     console.log(e.target.value);
@@ -9,7 +9,7 @@ export const TimeList = ({TimeDates, GetPositions, selectedTime, setSelectedTime
   }
 
   return (
-    <div id="TimeList">
+    <div className="TimeList">
       {TimeDates.length > 0 ? (
           TimeDates.map((time, index) => (
             <label key={index}>
@@ -29,3 +29,5 @@ export const TimeList = ({TimeDates, GetPositions, selectedTime, setSelectedTime
     </div>
   )
 }
+
+export default TimeList;

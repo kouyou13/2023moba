@@ -6,7 +6,7 @@
   display: none;
 }
 
-#date_div{
+.calendar_container{
   margin: 0;
   background-color: lightgray;
   top: 0;
@@ -15,10 +15,10 @@
   width: 20vw;
 }
 
-#TimeList {
-  margin: 2vh 0 0 1.5vw;
+.TimeList {
+  margin: 0 0 0 1.5vw;
   overflow: scroll;
-  height: 35vh;
+  height: 9vh;
 }
 
 h1 {
@@ -26,6 +26,14 @@ h1 {
   font-size: 1.5rem;
 }
 
-h3 {
+h3, p {
   margin: 0;
+}
+
+.ViewImage {
+  text-align: center;
+}
+
+.image, .timeSlider {
+  width: 15vw;
 }

@@ -8,7 +8,7 @@ import "./css/Calender.css"
 
 let event_date = [];
 
-export const Calender = ({GetTimeList, AccessApi, setTimeDates, setPositions, setSelectedTime}) => {
+const Calender = ({GetTimeList, AccessApi, setTimeDates, setPositions, setSelectedTime, setDatetimes}) => {
   // const events = useRef([]);
   const calendarRef = useRef(null);
   const [dates, setDates] = useState([]);
@@ -23,7 +23,7 @@ export const Calender = ({GetTimeList, AccessApi, setTimeDates, setPositions, se
     startDate.current = `${tempStartDate.getFullYear()}-${tempStartDate.getMonth() + 1}-${tempStartDate.getDate()}`;
     endDate.current = `${tempEndDate.getFullYear()}-${tempEndDate.getMonth() + 1}-${tempEndDate.getDate()}`;
 
-    const URL = `https://ezaki-lab.littlestar.jp/nict/api/get_date.php?start_date=${startDate.current}&end_date=${endDate.current}`;
+    const URL = `https://ezaki-lab.cloud/~nict/api/get_date.php?start_date=${startDate.current}&end_date=${endDate.current}`;
     event_date = [];
     try {
       const data = await AccessApi(URL);
@@ -48,6 +48,7 @@ export const Calender = ({GetTimeList, AccessApi, setTimeDates, setPositions, se
       setTimeDates([]);
       setPositions([]);
       setSelectedTime('');
+      setDatetimes([]);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -74,3 +75,5 @@ export const Calender = ({GetTimeList, AccessApi, setTimeDates, setPositions, se
     </div>
   )
 }
+
+export default Calender;

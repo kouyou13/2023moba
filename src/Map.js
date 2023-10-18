@@ -20,7 +20,7 @@ const MapWithPolyline = ({Positions, centerPositions}) => {
         {
           Positions.length > 0 ? (
             <>
-              <Polyline 
+              <Polyline
                 path={Positions}
                 options={{
                   strokeColor : "#FFFF00",
@@ -39,7 +39,7 @@ const MapWithPolyline = ({Positions, centerPositions}) => {
   )
 }
 
-export const Map = ({Positions, centerPositions}) => {
+const Map = ({Positions, centerPositions}) => {
   // console.log(Positions);
   return (
     <div>
@@ -47,3 +47,5 @@ export const Map = ({Positions, centerPositions}) => {
     </div>
   )
 };
+
+export default Map;

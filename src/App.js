@@ -1,18 +1,20 @@
 import React, {useState, useEffect} from 'react';
-import {Map} from './Map';
-import {Calender} from './Calender';
-
 import axios from 'axios';
+
+import Map from './Map';
+import Calender from './Calender';
+import TimeList from './TimeList';
+import ViewImage from './ViewImage';
 import './css/App.css';
-// import styles from './App.module.css';
-import { TimeList } from './TimeList';
+
 
 const App = () => {
   // DOMに現れるものをuseState，表れないものをuseRefにする（レンダリングするかしないか）
   const [Positions, setPositions] = useState([]); //緯度経度
   const [centerPositions, setCenterPositions] = useState({ lat: 34.48520833, lng: 136.8251525}); //中心座標
   const [TimeDates, setTimeDates] = useState([]); //開始時間時間
-  const [selectedTime, setSelectedTime] = useState(''); //選択した時間
+  const [selectedTime, setSelectedTime] = useState(''); //TimeListから選択した時間
+  const [datetimes, setDatetimes] = useState([]); //時間
   let tempTimeDates = [];
 
   // APIからデータ取得
@@ -42,15 +44,10 @@ const App = () => {
   // 指定日の開始時間を取得
   const GetTimeList = async (selectedDate) => {
     // console.log(selectedDate);
-    const URL = `https://ezaki-lab.littlestar.jp/nict/api/get_start_data.php?date=${selectedDate}`;
+    const URL = `https://ezaki-lab.cloud/~nict/api/get_start_data.php?date=${selectedDate}`;
     const res = await AccessApi(URL);
     tempTimeDates = res;
-    // console.log(res);
     await setTimeDates(res);
-    // if(res.length > 0) {
-    //   setSelectedTime(res[0].datetime);
-    //   GetPositions(res[0].datetime);
-    // }
   }
 
   // 指定日の緯度経度を取得
@@ -59,7 +56,6 @@ const App = () => {
       return item.datetime;
     });
     const checkedTimeIndex = temp.indexOf(checkedTime);
-    // console.log(checkedTimeIndex);
     if(checkedTimeIndex !== -1) {
       const startDate = temp[checkedTimeIndex].replace(' ', '_');
       let endDate;
@@ -69,17 +65,20 @@ const App = () => {
       else{
         endDate = temp[checkedTimeIndex].replace(' ', '_');
       }
-      const URL = `https://ezaki-lab.littlestar.jp/nict/api/get_gps.php?start_date=${startDate}&end_date=${endDate}`;
-      // console.log(URL);
+      const URL = `https://ezaki-lab.cloud/~nict/api/get_gps.php?start_date=${startDate}&end_date=${endDate}`;
 
       if(URL !== ''){
         const res = await AccessApi(URL);
+        console.log(res[0]);
+        const temp = res.map((item) => {
+          return item.datetime;
+        });
+        setDatetimes(temp);
         res.forEach(function (item) {
           for (var key in item) {
             item[key] = parseFloat(item[key]);
           }
         });
-        setPositions([]);
         setPositions(res);
         setCenterPositions(res[0]);
       }
@@ -99,12 +98,15 @@ const App = () => {
 
   return (
     <div className="App">
-      <div id="date_div" className="calendar_container">
+      <div className="calendar_container">
         <h1>日付選択</h1>
-        <Calender GetTimeList={GetTimeList} AccessApi={AccessApi} setTimeDates={setTimeDates} setPositions={setPositions} setSelectedTime={setSelectedTime}/>
+        <Calender GetTimeList={GetTimeList} AccessApi={AccessApi} setTimeDates={setTimeDates} setPositions={setPositions} setSelectedTime={setSelectedTime} setDatetimes={setDatetimes}/>
         <hr/>
         <h1>開始時刻</h1>
         <TimeList TimeDates={TimeDates} GetPositions={GetPositions} selectedTime={selectedTime} setSelectedTime={setSelectedTime}/>
+        <hr/>
+        <h1>撮影画像</h1>
+        <ViewImage datetimes={datetimes}/>
       </div>
       <Map Positions={Positions} centerPositions={centerPositions}/>
     </div>
