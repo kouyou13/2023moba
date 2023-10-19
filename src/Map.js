@@ -1,7 +1,12 @@
 import { LoadScript, GoogleMap, Polyline, MarkerF } from "@react-google-maps/api";
 import React from "react";
 
-const MapWithPolyline = ({Positions, centerPositions}) => {
+
+
+const MapWithPolyline = ({Positions, centerPositions, sliderSelectLatLng}) => {
+  if(Object.keys(sliderSelectLatLng).length !== 0){
+    console.log(sliderSelectLatLng);
+  }
   return (
     <LoadScript googleMapsApiKey={"AIzaSyCjpcBI57XAEzvIqzNBEj4eIpVzRaRe93U"}>
       <GoogleMap
@@ -18,19 +23,21 @@ const MapWithPolyline = ({Positions, centerPositions}) => {
         mapTypeId="satellite" // 地図タイプを航空写真に設定
       >
         {
+          Object.keys(sliderSelectLatLng).length !== 0 ? (
+            <MarkerF position={sliderSelectLatLng} icon='https://maps.google.com/mapfiles/ms/micons/red.png'/>
+          )
+          : <></>
+        }
+        {
           Positions.length > 0 ? (
-            <>
-              <Polyline
-                path={Positions}
-                options={{
-                  strokeColor : "#FFFF00",
-                  strokeOpacity : 1,
-                  strokeWeight : 1
-                }}
-              />
-              <MarkerF position={Positions[0]} icon='https://maps.google.com/mapfiles/ms/micons/blue.png'/>
-              <MarkerF position={Positions[Positions.length-1]} icon='https://maps.google.com/mapfiles/ms/micons/red.png'/>
-            </>
+            <Polyline
+              path={Positions}
+              options={{
+                strokeColor : "#FFFF00",
+                strokeOpacity : 1,
+                strokeWeight : 1
+              }}
+            />
           )
           : <></>
         }
@@ -39,11 +46,10 @@ const MapWithPolyline = ({Positions, centerPositions}) => {
   )
 }
 
-const Map = ({Positions, centerPositions}) => {
-  // console.log(Positions);
+const Map = ({Positions, centerPositions, sliderSelectLatLng}) => {
   return (
     <div>
-      <MapWithPolyline Positions={Positions} centerPositions={centerPositions}/>
+      <MapWithPolyline Positions={Positions} centerPositions={centerPositions} sliderSelectLatLng={sliderSelectLatLng}/>
     </div>
   )
 };

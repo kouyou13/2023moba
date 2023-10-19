@@ -14,7 +14,9 @@ const App = () => {
   const [centerPositions, setCenterPositions] = useState({ lat: 34.48520833, lng: 136.8251525}); //中心座標
   const [TimeDates, setTimeDates] = useState([]); //開始時間時間
   const [selectedTime, setSelectedTime] = useState(''); //TimeListから選択した時間
-  const [datetimes, setDatetimes] = useState([]); //時間
+  const [datetimes, setDatetimes] = useState([]); //スライダーに出す時間
+  const [sliderSelectTime, setSliderSelectedTime] = useState(''); //スライダーで選択した時間
+  const [sliderSelectLatLng, setSliderSelectedLatLng] = useState({}); //スライダーで選択した時間の時の緯度経度
   let tempTimeDates = [];
 
   // APIからデータ取得
@@ -69,7 +71,6 @@ const App = () => {
 
       if(URL !== ''){
         const res = await AccessApi(URL);
-        console.log(res[0]);
         const temp = res.map((item) => {
           return item.datetime;
         });
@@ -87,6 +88,28 @@ const App = () => {
 
   useEffect(() => {
     (async() => {
+      if(sliderSelectTime !== ''){
+        const temp = sliderSelectTime.replace(' ', '_');
+        const URL = `https://ezaki-lab.cloud/~nict/api/get_datetime_to_gps.php?datetime=${temp}`;
+        const res = await AccessApi(URL);
+        if(res.length > 0){
+          res.forEach(function (item) {
+            for (var key in item) {
+              item[key] = parseFloat(item[key]);
+            }
+          });
+          setSliderSelectedLatLng(res[0]);
+        }
+        else{
+          setSliderSelectedLatLng({});
+        }
+      }
+
+    })()
+  }, [sliderSelectTime])
+
+  useEffect(() => {
+    (async() => {
       const d = new Date();
       const today = `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`
       await GetTimeList(today);
@@ -101,14 +124,18 @@ const App = () => {
       <div className="calendar_container">
         <h1>日付選択</h1>
         <Calender GetTimeList={GetTimeList} AccessApi={AccessApi} setTimeDates={setTimeDates} setPositions={setPositions} setSelectedTime={setSelectedTime} setDatetimes={setDatetimes}/>
-        <hr/>
-        <h1>開始時刻</h1>
-        <TimeList TimeDates={TimeDates} GetPositions={GetPositions} selectedTime={selectedTime} setSelectedTime={setSelectedTime}/>
-        <hr/>
-        <h1>撮影画像</h1>
-        <ViewImage datetimes={datetimes}/>
+        <div className='TimeListDiv'>
+          <hr/>
+          <h1>開始時刻</h1>
+          <TimeList TimeDates={TimeDates} GetPositions={GetPositions} selectedTime={selectedTime} setSelectedTime={setSelectedTime}/>
+          <hr/>
+        </div>
+        <div className='ViewImageDiv'>
+          <h1>撮影画像</h1>
+          <ViewImage datetimes={datetimes} sliderSelectTime={sliderSelectTime} setSliderSelectedTime={setSliderSelectedTime}/>
+        </div>
       </div>
-      <Map Positions={Positions} centerPositions={centerPositions}/>
+      <Map Positions={Positions} centerPositions={centerPositions} sliderSelectLatLng={sliderSelectLatLng}/>
     </div>
   );
 }

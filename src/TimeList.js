@@ -3,7 +3,6 @@ import React from "react"
 const TimeList = ({TimeDates, GetPositions, selectedTime, setSelectedTime}) => {
   // 時間選択
   const SelectRadio = (e) => {
-    console.log(e.target.value);
     setSelectedTime(e.target.value);
     GetPositions(e.target.value);
   }
