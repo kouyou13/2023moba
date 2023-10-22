@@ -1,4 +1,9 @@
 /* 当月以外の日（月カレンダーに一緒に表示される前後の月） */
+.calendar {
+  height: 48.5vh;
+  overflow: scroll;
+}
+
 .fc-day-other {
   .fc-daygrid-day-top, .fc-scrollgrid-sync-inner .fc-col-header-cell-cushion, .fc-list-day-cushion {
     color: grey;
@@ -20,8 +25,8 @@
 }
 
 /* カレンダーの横幅を指定 */
-.calendar_container .fc {
-  width: 18vw; /* 任意の幅に設定 */
+.container .fc {
+  width: 24vw; /* 任意の幅に設定 */
   margin: auto;
   height: auto;
 }
@@ -66,6 +71,18 @@
   margin-bottom: 0.5em;
 }
 
-/* .fc-event-title {
-  font-size: 0.1rem;
+.fc .fc-button-primary {
+  background-color: #3788d8;
+  border-color: #3788d8;
+}
+
+.fc .fc-button-primary:disabled, .fc .fc-button-primary:hover {
+  background-color: #1d5a96;
+  border-color: #1d5a96;
+}
+
+/* .fc-scrollgrid-sync-table tbody tr:last-child {
+  display: none;
 } */
+
+

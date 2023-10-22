@@ -4,6 +4,9 @@ const TimeList = ({TimeDates, GetPositions, selectedTime, setSelectedTime}) => {
   // 時間選択
   const SelectRadio = (e) => {
     setSelectedTime(e.target.value);
+    // setInterval(() => {
+    //   GetPositions(e.target.value);
+    // }, 1000);
     GetPositions(e.target.value);
   }
 

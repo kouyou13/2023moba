@@ -2,14 +2,13 @@
 import React, {useCallback, useRef, useState} from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid"; // pluginは、あとから
-import allLocales from '@fullcalendar/core/locales-all';
+import jaLocale from '@fullcalendar/core/locales/ja'; // 日本語ロケール
 import interactionPlugin from "@fullcalendar/interaction";
 import "./css/Calender.css"
 
 let event_date = [];
 
 const Calender = ({GetTimeList, AccessApi, setTimeDates, setPositions, setSelectedTime, setDatetimes}) => {
-  // const events = useRef([]);
   const calendarRef = useRef(null);
   const [dates, setDates] = useState([]);
   const d = new Date();
@@ -59,18 +58,21 @@ const Calender = ({GetTimeList, AccessApi, setTimeDates, setPositions, setSelect
   }
 
   return(
-    <div>
+    <div className="calendar">
       <FullCalendar
         ref={calendarRef}
         plugins={[dayGridPlugin, interactionPlugin]}
         initialView="dayGridMonth" //表示の種類
-        locales={allLocales} //全部を日本語化
-        locale="ja" //日本語表記
+        locale={jaLocale} //日本語表記
         // イベントを表示 forで配列作って入れ込む?
         events={dates}
         dateClick={HandleDateClick} //日付押したら
         datesSet={HandleDatesClick} //月変えたら
         contentHeight="auto" // 高さを自動調整
+        // dayCellContent={(arg) => {
+          // 日付の表示をカスタマイズ
+          // arg.dayNumberText = arg.dayNumberText.replace('日', ''); // 「日」を削除
+        // }}
       />
     </div>
   )

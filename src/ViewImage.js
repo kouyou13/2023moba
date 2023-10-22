@@ -63,9 +63,7 @@ const ViewImage = ({datetimes, sliderSelectTime, setSliderSelectedTime}) => {
 
   return (
     <div className='ViewImage'>
-      <a href={() => false} onClick={openImageInNewTab}>
-        <img className='image' src={image} alt='画像'/><br/>
-      </a>
+      <img className='image' src={image} alt='画像' onClick={openImageInNewTab}/><br/>
       <input
         type = 'range'
         className = 'timeSlider'

@@ -1,17 +1,14 @@
-import { LoadScript, GoogleMap, Polyline, MarkerF } from "@react-google-maps/api";
 import React from "react";
+import { LoadScript, GoogleMap, Polyline, MarkerF } from "@react-google-maps/api";
 
 
 
 const MapWithPolyline = ({Positions, centerPositions, sliderSelectLatLng}) => {
-  if(Object.keys(sliderSelectLatLng).length !== 0){
-    console.log(sliderSelectLatLng);
-  }
   return (
     <LoadScript googleMapsApiKey={"AIzaSyCjpcBI57XAEzvIqzNBEj4eIpVzRaRe93U"}>
       <GoogleMap
         id="myMap"
-        mapContainerStyle={{height: "100vh", width: "80vw"}}
+        mapContainerStyle={{height: "100vh", width: "75vw"}}
         zoom={22}
         center={centerPositions}
         mapOptions={{

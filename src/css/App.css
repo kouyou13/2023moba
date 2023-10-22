@@ -1,4 +1,4 @@
-.App {
+.Top {
   display: flex;
 }
 
@@ -6,13 +6,13 @@
   display: none;
 }
 
-.calendar_container{
+.container{
   margin: 0;
-  background-color: lightgray;
+  background-color: #e6e6e6;
   top: 0;
   left: 0;
   height: 100vh;
-  width: 20vw;
+  width: 25vw;
 }
 
 .TimeList {
@@ -23,17 +23,18 @@
 
 .TimeListDiv {
   position: fixed;
-  width: 20vw;
+  width: 25vw;
   bottom: 0;
   left: 0;
   margin: 0 0 28vh 0;
+  height: 18vh;
 }
 
 .ViewImageDiv {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 20vw;
+  width: 25vw;
   height: 28vh;
 }
 
@@ -50,6 +51,45 @@ h3, p {
   text-align: center;
 }
 
-.image, .timeSlider {
-  width: 15vw;
+.timeSlider {
+  width: 18vw;
+}
+
+.image {
+  height: 15vh;
+}
+
+.Login {
+  background-color: #ffffff;
+  text-align: center;
+  width: 50vw;
+  height: 40vh;
+  margin:  30vh 25vw 20vh;
+}
+
+.loginBtn {
+  background-color: #3788d8;
+  border-color: #3788d8;
+  color: #ffffff;
+  width: 8vw;
+  height: 4vh;
+  margin: 3vh;
+}
+
+.loginBtn:hover {
+  background-color: #1d5a96;
+  border-color: #1d5a96;
+}
+
+.loginP {
+  text-align: left;
+  margin: 2vh 13vw 0.5vh;
+}
+
+.loginText {
+  width: 24vw;
+}
+
+.Login h1 {
+  padding: 3vh 0 0;
 }

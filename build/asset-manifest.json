@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/~nict/static/css/main.b9d7c01a.chunk.css",
+    "main.js": "/~nict/static/js/main.9b53077e.chunk.js",
+    "main.js.map": "/~nict/static/js/main.9b53077e.chunk.js.map",
+    "runtime-main.js": "/~nict/static/js/runtime-main.5b40ec73.js",
+    "runtime-main.js.map": "/~nict/static/js/runtime-main.5b40ec73.js.map",
+    "static/js/2.3524497f.chunk.js": "/~nict/static/js/2.3524497f.chunk.js",
+    "static/js/2.3524497f.chunk.js.map": "/~nict/static/js/2.3524497f.chunk.js.map",
+    "static/js/3.f9410133.chunk.js": "/~nict/static/js/3.f9410133.chunk.js",
+    "static/js/3.f9410133.chunk.js.map": "/~nict/static/js/3.f9410133.chunk.js.map",
+    "index.html": "/~nict/index.html",
+    "precache-manifest.ff0514904425a9b71d984055e32ee4c6.js": "/~nict/precache-manifest.ff0514904425a9b71d984055e32ee4c6.js",
+    "service-worker.js": "/~nict/service-worker.js",
+    "static/css/main.b9d7c01a.chunk.css.map": "/~nict/static/css/main.b9d7c01a.chunk.css.map",
+    "static/js/2.3524497f.chunk.js.LICENSE.txt": "/~nict/static/js/2.3524497f.chunk.js.LICENSE.txt",
+    "static/js/main.9b53077e.chunk.js.LICENSE.txt": "/~nict/static/js/main.9b53077e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5b40ec73.js",
+    "static/js/2.3524497f.chunk.js",
+    "static/css/main.b9d7c01a.chunk.css",
+    "static/js/main.9b53077e.chunk.js"
+  ]
+}
