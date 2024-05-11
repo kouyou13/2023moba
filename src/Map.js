@@ -5,7 +5,7 @@ import { LoadScript, GoogleMap, Polyline, MarkerF } from "@react-google-maps/api
 
 const MapWithPolyline = ({Positions, centerPositions, sliderSelectLatLng}) => {
   return (
-    <LoadScript googleMapsApiKey={"AIzaSyCjpcBI57XAEzvIqzNBEj4eIpVzRaRe93U"}>
+    <LoadScript async googleMapsApiKey={"AIzaSyCjpcBI57XAEzvIqzNBEj4eIpVzRaRe93U"}>
       <GoogleMap
         id="myMap"
         mapContainerStyle={{height: "100vh", width: "75vw"}}
