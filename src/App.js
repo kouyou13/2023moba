@@ -4,7 +4,7 @@ import Top from './Top';
 import Login from './Login';
 
 const App = () => {
-  const [page, setPage] = useState('Login'); //
+  const [page, setPage] = useState('Login')
 
   return (
     page === 'Login' ?
