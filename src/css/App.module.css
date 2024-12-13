@@ -2,11 +2,12 @@
   display: flex;
 }
 
-.wrap button, .gmnoprint{
+.wrap button,
+.gmnoprint {
   display: none;
 }
 
-.date_div{
+.date_div {
   margin: 0;
   background-color: lightgray;
   top: 0;

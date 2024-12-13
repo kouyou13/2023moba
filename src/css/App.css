@@ -2,11 +2,12 @@
   display: flex;
 }
 
-.wrap button, .gmnoprint{
+.wrap button,
+.gmnoprint {
   display: none;
 }
 
-.container{
+.container {
   margin: 0;
   background-color: #e6e6e6;
   top: 0;
@@ -43,7 +44,8 @@ h1 {
   font-size: 1.5rem;
 }
 
-h3, p {
+h3,
+p {
   margin: 0;
 }
 
@@ -64,7 +66,7 @@ h3, p {
   text-align: center;
   width: 50vw;
   height: 40vh;
-  margin:  30vh 25vw 20vh;
+  margin: 30vh 25vw 20vh;
 }
 
 .loginBtn {

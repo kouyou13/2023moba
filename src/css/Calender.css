@@ -5,21 +5,27 @@
 }
 
 .fc-day-other {
-  .fc-daygrid-day-top, .fc-scrollgrid-sync-inner .fc-col-header-cell-cushion, .fc-list-day-cushion {
+  .fc-daygrid-day-top,
+  .fc-scrollgrid-sync-inner .fc-col-header-cell-cushion,
+  .fc-list-day-cushion {
     color: grey;
   }
 }
 
 /* 土曜日 */
 .fc-day-sat {
-  .fc-daygrid-day-top, .fc-scrollgrid-sync-inner .fc-col-header-cell-cushion, .fc-list-day-cushion {
+  .fc-daygrid-day-top,
+  .fc-scrollgrid-sync-inner .fc-col-header-cell-cushion,
+  .fc-list-day-cushion {
     color: blue;
   }
 }
 
 /* 日曜日 */
-.fc-day-sun{
-  .fc-daygrid-day-top, .fc-scrollgrid-sync-inner .fc-col-header-cell-cushion, .fc-list-day-cushion {
+.fc-day-sun {
+  .fc-daygrid-day-top,
+  .fc-scrollgrid-sync-inner .fc-col-header-cell-cushion,
+  .fc-list-day-cushion {
     color: red;
   }
 }
@@ -38,16 +44,18 @@
 
 /* 上部の年月 */
 .fc .fc-toolbar-title {
-  font-size : 1.2rem ;
+  font-size: 1.2rem;
 }
 
 /* 文字のマージン */
-.fc .fc-daygrid-body-natural, .fc .fc-toolbar.fc-header-toolbar {
+.fc .fc-daygrid-body-natural,
+.fc .fc-toolbar.fc-header-toolbar {
   margin: 0;
 }
 
 /* 上部の今日，<，>の文字サイズ */
-.fc .fc-today-button, .fc-button-group .fc-button{
+.fc .fc-today-button,
+.fc-button-group .fc-button {
   font-size: 0.7rem;
 }
 
@@ -59,7 +67,6 @@
 /* 日付の下の部分 */
 .fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events {
   min-height: 1vh;
-
 }
 
 /* イベントのフォントサイズ */
@@ -76,7 +83,8 @@
   border-color: #3788d8;
 }
 
-.fc .fc-button-primary:disabled, .fc .fc-button-primary:hover {
+.fc .fc-button-primary:disabled,
+.fc .fc-button-primary:hover {
   background-color: #1d5a96;
   border-color: #1d5a96;
 }
@@ -84,5 +92,3 @@
 /* .fc-scrollgrid-sync-table tbody tr:last-child {
   display: none;
 } */
-
-

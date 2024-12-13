@@ -1,17 +1,12 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react'
 
-import Top from './Top';
-import Login from './Login';
+import Top from './Top'
+import Login from './Login'
 
 const App = () => {
   const [page, setPage] = useState('Login')
 
-  return (
-    page === 'Login' ?
-      <Login setPage={setPage}/>
-    :
-      <Top/>
-  )
+  return page === 'Login' ? <Login setPage={setPage} /> : <Top />
 }
 
-export default App;
+export default App
